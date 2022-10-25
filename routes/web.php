@@ -17,9 +17,8 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 Route::group(['middleware' => 'auth'],function (){
-    Route::get('/home',[\App\Http\Controllers\HomeController::class,'index']);
-    Route::put('/home',[\App\Http\Controllers\HomeController::class,'editToken'])->name('edit.token');
-
+    Route::get('/home',[\App\Http\Controllers\Api\V1\HomeController::class,'index']);
+    Route::put('/home',[\App\Http\Controllers\Api\V1\HomeController::class,'editToken'])->name('edit.token');
 });
 
 Auth::routes();

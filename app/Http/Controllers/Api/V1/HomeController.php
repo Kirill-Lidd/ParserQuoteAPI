@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 
 class HomeController extends Controller
 {
@@ -18,11 +17,9 @@ class HomeController extends Controller
 
     function editToken(Request $request)
     {
-        $data = $request->validate(
-           [
+        $data = $request->validate([
                'token' => 'required'
-           ]
-        );
+           ]);
 
         auth()->user()->update($data);
 
